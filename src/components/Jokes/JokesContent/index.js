@@ -40,6 +40,7 @@ const JokesContent = ({ data, onAzalt, onArtir }) => {
           />
         </div>
         <div className={styles.rightSide}>
+          {!data.length && <h1>Loading...</h1>}
           {data?.map((item, index) => {
             const emoji = handleEmoji(index);
 
