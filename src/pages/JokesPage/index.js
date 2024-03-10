@@ -12,7 +12,11 @@ const JokesPage = () => {
   const handleData = async () => {
     const res = await getJokes();
 
+    console.log("res", res);
+
     const newData = res.data.results.map((item) => ({ ...item, vote: 0 }));
+
+    console.log("newData", newData);
 
     setData(newData);
   };
@@ -52,13 +56,11 @@ const JokesPage = () => {
   };
 
   return (
-    <>
-      <JokesContent
-        data={data}
-        onArtir={onHandleAddVote}
-        onAzalt={onHandleRmvVote}
-      />
-    </>
+    <JokesContent
+      data={data}
+      onArtir={onHandleAddVote}
+      onAzalt={onHandleRmvVote}
+    />
   );
 };
 
